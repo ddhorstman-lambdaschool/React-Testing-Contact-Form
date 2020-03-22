@@ -17,8 +17,8 @@ const ContactForm = () => {
           <label htmlFor="firstName">First Name*</label>
           <input
             name="firstName"
-            placeholder="bill"
-            ref={register({ required: true, maxLength: 3 })}
+            placeholder="Enter your first name"
+            ref={register({ required: true })}
           />
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
@@ -29,7 +29,7 @@ const ContactForm = () => {
           <label htmlFor="lastName">Last Name*</label>
           <input
             name="lastName"
-            placeholder="luo"
+            placeholder="Enter your last name"
             ref={register({ required: true })}
           />
           {errors.lastName && (
@@ -38,24 +38,26 @@ const ContactForm = () => {
         </div>
 
         <div>
-          <label htmlFor="email" placeholder="bluebill1049@hotmail.com">
+          <label htmlFor="email">
             Email*
           </label>
-          <input name="email" ref={register({ required: true })} />
+          <input name="email"
+            placeholder="Enter your email address"
+            ref={register({ required: true })} />
           {errors.email && (
             <p>Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
         <div>
           <label htmlFor="message">Message</label>
-          <textarea name="message" ref={register({ required: false })} />
+          <textarea placeholder="Enter your message" name="message" ref={register({ required: false })} />
         </div>
         {data && (
           <pre style={{ textAlign: "left", color: "white" }}>
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
-        <input type="submit" />
+        <input type="submit" role="button" />
       </form>
     </div>
   );
